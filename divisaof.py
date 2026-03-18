@@ -1,4 +1,2 @@
-# Função divisão
-@app.get("/dividir")
-def somar(a: int, b: int):
+def dividir(a: float, b: float):
     return {"resultado": a / b}
