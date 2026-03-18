@@ -1,7 +1,5 @@
 import math
-# Função raiz quadrada
-@app.get("/raiz")
-def raiz(numero: float):
 
-    resultado = math.sqrt(numero)
-    return {"numero": numero, "raiz": resultado}
+def raiz(numero: float):
+    # Retorna APENAS o número bruto
+    return math.sqrt(numero)
