@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+# Vai na caixa de ferramentas do FastAPI e pega especificamente a ferramenta de redirecionamento
+from fastapi.responses import RedirectResponse
 
 # Os Imports dos arquivos dos colaboradores afiliados
 import somaf
@@ -9,7 +11,8 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"message": "Bem-vindo!"}
+    # Redireciona o Úsuario assim que ele entrar, direto para a URL '/docs' com todos calculos
+    return RedirectResponse(url="/docs")
 
 # --- ROTAS DE ACESSO DOS JÚNIORS: ---
 
@@ -43,25 +46,3 @@ def multiplicar(a: float, b: float):
 # @app.get("/subtrair")
 # @app.get("/exponenciar")
 # @app.get("/fatorar")
-
-print("Seja Vindo a nosso sistema de calculadora!")
-print("Temos algumas opções de calculos, escolha uma delas para usar")
-print("1- Calcula de somas")
-print("2- Calcula de Subtração")
-print("3- Calcula de Divisão")
-opcao = int(input("Digite o número da opção desejada: "))
-
-match opcao:
-  case 1:
-    # Tenho que puxar a função as opções correspondentes e colocar uma caixa de input para que o úsuario escolha a conta
-    # que ele quer que o programa execute (continuar daqui) 
-    # Acredito que de para colocar o app.get dentro das opções já, para que puxe, já puxe certo. 
-    #Entretanto isso é apenas suposição ainda. Abraços do Scrum Master!!
-    print("Today is Saturday")
-  case 2:
-    print("Today is Sunday")
-  case 3:
-    print("Today is Sunday")
-    # 'case _:' serve como um "se não entrar nos outros, cai nesse"
-  case _:
-    print("Opção Inválida, tente um número válido")
